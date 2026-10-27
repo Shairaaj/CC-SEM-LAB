@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Ordering Management</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Food Ordering System</h1>
+    <p>Manage the menu and customer orders</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>Add a Dish</h2>
+      <form id="foodForm">
+        <input id="foodName" placeholder="Dish name" required>
+        <input id="foodPrice" type="number" min="0.01" step="0.01"
+               placeholder="Price (₹)" required>
+        <button type="submit">Add Dish</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Food Menu</h2>
+      <div id="foodList">Loading menu...</div>
+    </section>
+
+    <section class="card">
+      <h2>Place a Customer Order</h2>
+      <form id="orderForm">
+        <input id="customer" placeholder="Customer name" required>
+        <select id="orderFood" required></select>
+        <input id="quantity" type="number" min="1" value="1" required>
+        <button type="submit">Place Order</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Customer Orders</h2>
+      <div id="orderList">Loading orders...</div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
