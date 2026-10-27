@@ -1,3 +1,4 @@
+
 name: Deploy Food Ordering App
 
 on:
@@ -37,4 +38,4 @@ jobs:
           aws-region: ap-south-1
           application-name: food-ordering-app
           environment-name: food-ordering-env
-          deployment-package: food-ordering-app.zip
+          deployment-package-path: food-ordering-app.zip
