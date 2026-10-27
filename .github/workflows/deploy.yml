@@ -14,10 +14,6 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
-    defaults:
-      run:
-        working-directory: food-ordering-app
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -29,13 +25,15 @@ jobs:
           aws-region: ap-south-1
 
       - name: Package application
-        run: zip -r ../food-ordering-app.zip server.js package.json package-lock.json public
+        run: |
+          cd food-ordering-app
+          zip -r food-ordering-app.zip server.js package.json package-lock.json public
 
-            - name: Deploy to Elastic Beanstalk
+      - name: Deploy to Elastic Beanstalk
         uses: aws-actions/aws-elasticbeanstalk-deploy@v1
         with:
           aws-region: ap-south-1
           application-name: food-ordering-app
           environment-name: Food-ordering-app-env
           create-environment-if-not-exists: false
-          deployment-package-path: food-ordering-app.zip
+          deployment-package-path: food-ordering-app/food-ordering-app.zip
